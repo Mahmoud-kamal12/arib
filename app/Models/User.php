@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -25,6 +26,8 @@ class User extends Authenticatable
         'phone',
         'email',
         'password',
+        'manager_id',
+        'department_id'
     ];
 
     /**
@@ -50,8 +53,43 @@ class User extends Authenticatable
         ];
     }
 
-    public function getFullName(): string
+    public function manager(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->first_name . ' ' . $this->last_name;
+        return $this->belongsTo(__CLASS__, 'manager_id');
     }
+
+    public function employees(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(__CLASS__, 'manager_id');
+    }
+
+    public function department(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function getFullNameAttribute(): string
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    public function getManagerNameAttribute(): string
+    {
+        return $this->manager
+            ? $this->manager->full_name
+            : 'No Manager';
+    }
+
+    public function getDepartmentNameAttribute(): string
+    {
+        return $this->department->name;
+    }
+
+    public function getImagePathAttribute(): string
+    {
+        return $this->image
+            ? Storage::url($this->image)
+            : asset('images/default-avatar.png');
+    }
+
 }

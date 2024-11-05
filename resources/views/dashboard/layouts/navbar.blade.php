@@ -19,7 +19,7 @@
                 <span class="d-sm-none d-lg-inline-block"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
-                <div class="dropdown-title">Hello {{auth()->user()->getFullName()}}</div>
+                <div class="dropdown-title">Hello {{auth()->user()->full_name}}</div>
                 <a href="{{route('logout')}}" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i>Logout
                 </a>

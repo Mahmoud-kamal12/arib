@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Http\Constants\UserConstants;
+use App\Models\Department;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -33,6 +35,8 @@ class UserFactory extends Factory
             'phone' => fake()->unique()->phoneNumber(),
             'role' => fake()->randomElement(UserConstants::ROLES),
             'email_verified_at' => now(),
+            'manager_id' => User::whereRole(UserConstants::ROLE_MANAGER)->inRandomOrder()->first()?->id,
+            'department_id' => Department::inRandomOrder()->first()?->id,
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];

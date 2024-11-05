@@ -285,7 +285,7 @@
      *     Plain object, Array, TypedArray, number, string, null, undefined.
      * Those data types will be assgined using the orginal data:
      *     BUILTIN_OBJECT
-     * Instance of user defined class will be cloned to a plain object, without
+     * Instance of users defined class will be cloned to a plain object, without
      * properties in prototype.
      * Other data types is not supported (not sure what will happen).
      *
@@ -868,7 +868,7 @@
             // used in this case: `var someVal = map.set('a', genVal());`
             return (this[key] = value);
         },
-        // Although util.each can be performed on this hashMap directly, user
+        // Although util.each can be performed on this hashMap directly, users
         // should not use the exposed keys, who are prefixed.
         each: function (cb, context) {
             context !== void 0 && (cb = bind(cb, context));
@@ -6343,7 +6343,7 @@
          * textStroke may be set as some color as a default
          * value in upper applicaion, where the default value
          * of textStrokeWidth should be 0 to make sure that
-         * user can choose to do not use text stroke.
+         * users can choose to do not use text stroke.
          * @type {number}
          */
         textStrokeWidth: 0,
@@ -7215,7 +7215,7 @@
      * @param  {number} [options.maxIterations=3]
      * @param  {number} [options.minChar=0] If truncate result are less
      *                  then minChar, ellipsis will not show, which is
-     *                  better for user hint in some cases.
+     *                  better for users hint in some cases.
      * @param  {number} [options.placeholder=''] When all truncated, use the placeholder.
      * @return {string}
      */
@@ -7513,7 +7513,7 @@
                     token.percentWidth = tokenWidth;
                     pendingList.push(token);
                     tokenWidth = 0;
-                    // Do not truncate in this case, because there is no user case
+                    // Do not truncate in this case, because there is no users case
                     // and it is too complicated.
                 }
                 else {
@@ -7932,7 +7932,7 @@
             lineXLeft += (contentWidth - (lineXLeft - xLeft) - (xRight - lineXRight) - usedWidth) / 2;
             while (leftIndex <= rightIndex) {
                 token = tokens[leftIndex];
-                // Consider width specified by user, use 'center' rather than 'left'.
+                // Consider width specified by users, use 'center' rather than 'left'.
                 placeToken(hostEl, ctx, token, style, lineHeight, lineTop, lineXLeft + token.width / 2, 'center');
                 lineXLeft += token.width;
                 leftIndex++;
@@ -9770,7 +9770,7 @@
             // listener delegate all of the upper events of element. Some of those events need
             // to prevent default. For example, the feature `preventDefaultMouseMove` of echarts.
             // Before passive can be adopted, these issues should be considered:
-            // (1) Whether and how a zrender user specifies an event listener passive. And by default,
+            // (1) Whether and how a zrender users specifies an event listener passive. And by default,
             // passive or not.
             // (2) How to tread that some zrender event listener is passive, and some is not. If
             // we use other way but not preventDefault of mousewheel and touchmove, browser
@@ -10373,7 +10373,7 @@
             // by listening to `mouseover` to add "hover style" and listening to `mouseout`
             // to remove "hover style" on an element, without any additional code for
             // compatibility. (`mouseout` will not be triggered in `touchend`, so "hover
-            // style" will remain for user view)
+            // style" will remain for users view)
 
             // click event should always be triggered no matter whether
             // there is gestrue event. System click can not be prevented.
@@ -11033,7 +11033,7 @@
 
     /**
      * Make the name displayable. But we should
-     * make sure it is not duplicated with user
+     * make sure it is not duplicated with users
      * specified name, so use '\0';
      */
     var DUMMY_COMPONENT_NAME_PREFIX = 'series\0';
@@ -11228,7 +11228,7 @@
      */
     function makeIdAndName(mapResult) {
         // We use this id to hash component models and view instances
-        // in echarts. id can be specified by user, or auto generated.
+        // in echarts. id can be specified by users, or auto generated.
 
         // The id generation rule ensures new view instance are able
         // to mapped to old instance when setOption are called in
@@ -18696,7 +18696,7 @@
             });
             each$3(names, function (name) {
                 // Consider case: newOption.width is null, which is
-                // set by user for removing width setting.
+                // set by users for removing width setting.
                 hasProp(newOption, name) && (newParams[name] = merged[name] = newOption[name]);
                 hasValue(newParams, name) && newValueCount++;
                 hasValue(merged, name) && mergedValueCount++;
@@ -18721,7 +18721,7 @@
                 return merged;
             }
             // Case: newOption: {width: ..., right: ...},
-            // Than we can make sure user only want those two, and ignore
+            // Than we can make sure users only want those two, and ignore
             // all origin params in targetOption.
             else if (newValueCount >= enoughParamNumber) {
                 return newParams;
@@ -19226,7 +19226,7 @@
      *     }),
      *     // It also indicate that whether there is category axis.
      *     firstCategoryDimIndex: 1,
-     *     // To replace user specified encode.
+     *     // To replace users specified encode.
      * }
      */
     function getCoordSysDefineBySeries(seriesModel) {
@@ -19805,7 +19805,7 @@
             // Also consider number form like 2012.
             item.name += '';
             // User may also specify displayName.
-            // displayName will always exists except user not
+            // displayName will always exists except users not
             // specified or dim name is not specified or detected.
             // (A auto generated dim name will not be used as
             // displayName).
@@ -19963,7 +19963,7 @@
         // A dataset is declared and a series is not expected to use the dataset,
         // and at the beginning `setOption({series: { noData })` (just prepare other
         // option but no data), then `setOption({series: {data: [...]}); In this case,
-        // the user should set an empty array to avoid that dataset is used by default.
+        // the users should set an empty array to avoid that dataset is used by default.
         var thisData = option.data;
         if (!thisData) {
             return seriesModel.ecModel.getComponent('dataset', option.datasetIndex || 0);
@@ -19971,7 +19971,7 @@
     }
 
     /**
-     * The rule should not be complex, otherwise user might not
+     * The rule should not be complex, otherwise users might not
      * be able to known where the data is wrong.
      * The code is ugly, but how to make it neat?
      *
@@ -20814,7 +20814,7 @@
      */
     function filterBySubType(components, condition) {
         // Using hasOwnProperty for restrict. Consider
-        // subType is undefined in user payload.
+        // subType is undefined in users payload.
         return condition.hasOwnProperty('subType')
             ? filter(components, function (cpt) {
                 return cpt.subType === condition.subType;
@@ -21085,7 +21085,7 @@
          */
         setOption: function (rawOption, optionPreprocessorFuncs) {
             if (rawOption) {
-                // That set dat primitive is dangerous if user reuse the data when setOption again.
+                // That set dat primitive is dangerous if users reuse the data when setOption again.
                 each$1(normalizeToArray(rawOption.series), function (series) {
                     series && series.data && isTypedArray(series.data) && setAsPrimitive(series.data);
                 });
@@ -21340,9 +21340,9 @@
     /**
      * Consider case:
      * `chart.setOption(opt1);`
-     * Then user do some interaction like dataZoom, dataView changing.
+     * Then users do some interaction like dataZoom, dataView changing.
      * `chart.setOption(opt2);`
-     * Then user press 'reset button' in toolbox.
+     * Then users press 'reset button' in toolbox.
      *
      * After doing that all of the interaction effects should be reset, the
      * chart should be the same as the result of invoke
@@ -23714,7 +23714,7 @@
             // happens, either the `exec` is called dierectly, or the call is delayed.
             // But the delayed call should never be later than next call of `cb`. Under
             // this assurance, we can simply update view state each time `dispatchAction`
-            // triggered by user roaming, but not need to add extra code to avoid the
+            // triggered by users roaming, but not need to add extra code to avoid the
             // state being "rolled-back".
             if (thisDebounce) {
                 timer = setTimeout(exec, thisDelay);
@@ -25334,7 +25334,7 @@
                 updateStreamModes(this, ecModel);
 
                 // Do not update coordinate system here. Because that coord system update in
-                // each frame is not a good user experience. So we follow the rule that
+                // each frame is not a good users experience. So we follow the rule that
                 // the extent of the coordinate system is determin in the first frame (the
                 // frame is executed immedietely after task reset.
                 // this._coordSysMgr.update(ecModel, api);
@@ -26200,7 +26200,7 @@
         else if (opt.flush !== false && env$1.browser.weChat) {
             // In WeChat embeded browser, `requestAnimationFrame` and `setInterval`
             // hang when sliding page (on touch event), which cause that zr does not
-            // refresh util user interaction finished, which is not expected.
+            // refresh util users interaction finished, which is not expected.
             // But `dispatchAction` may be called too frequently when pan on touch
             // screen, which impacts performance if do not throttle them.
             this._throttledZrFlush();
@@ -29439,7 +29439,7 @@
     /**
      * @see {module:echarts/test/ut/spec/data/completeDimensions}
      *
-     * Complete the dimensions array, by user defined `dimension` and `encode`,
+     * Complete the dimensions array, by users defined `dimension` and `encode`,
      * and guessing from the data structure.
      * If no 'value' dimension specified, the first no-named dimension will be
      * named as 'value'.
@@ -29499,7 +29499,7 @@
 
         var dimCount = getDimCount(source, sysDims, dimsDef, opt.dimCount);
 
-        // Apply user defined dims (`name` and `type`) and init result.
+        // Apply users defined dims (`name` and `type`) and init result.
         for (var i = 0; i < dimCount; i++) {
             var dimDefItem = dimsDef[i] = extend(
                 {}, isObject$1(dimsDef[i]) ? dimsDef[i] : { name: dimsDef[i] }
@@ -29636,7 +29636,7 @@
     // But
     // (1) custom series should be considered. where other dims
     // may be visited.
-    // (2) sometimes user need to calcualte bubble size or use visualMap
+    // (2) sometimes users need to calcualte bubble size or use visualMap
     // on other dimensions besides coordSys needed.
     // So, dims that is not used by system, should be shared in storage?
     function getDimCount(source, sysDims, dimsDef, optDimCount) {
@@ -30243,7 +30243,7 @@
         // category is ['2012-01-01', '2012-01-02', ...], where the input
         // data has been ensured not duplicate and is large data.
         // Notice, if a dataset dimension provide categroies, usually echarts
-        // should remove duplication except user tell echarts dont do that
+        // should remove duplication except users tell echarts dont do that
         // (set axis.deduplication = false), because echarts do not know whether
         // the values in the category dimension has duplication (consider the
         // parallel-aqi example)
@@ -30605,8 +30605,8 @@
          */
         setInterval: function (interval) {
             this._interval = interval;
-            // Dropped auto calculated niceExtent and use user setted extent
-            // We assume user wan't to set both interval, min, max to get a better result
+            // Dropped auto calculated niceExtent and use users setted extent
+            // We assume users wan't to set both interval, min, max to get a better result
             this._niceExtent = this._extent.slice();
 
             this._intervalPrecision = getIntervalPrecision(interval);
@@ -31876,7 +31876,7 @@
 
     function getAxisRawValue(axis, value) {
         // In category axis with data zoom, tick is not the original
-        // index of axis.data. So tick should not be exposed to user
+        // index of axis.data. So tick should not be exposed to users
         // in category axis.
         return axis.type === 'category' ? axis.scale.getLabel(value) : value;
     }
@@ -36480,7 +36480,7 @@
 
         // Default `false` to support tooltip.
         silent: false,
-        // Default `false` to avoid legacy user event listener fail.
+        // Default `false` to avoid legacy users event listener fail.
         triggerEvent: false,
 
         tooltip: {
@@ -37946,7 +37946,7 @@
     }
 
     function fixMinMaxLabelShow(axisModel, labelEls, tickEls) {
-        // If min or max are user set, we need to check
+        // If min or max are users set, we need to check
         // If the tick on min(max) are overlap on their neighbour tick
         // If they are overlapped, we need to hide the min(max) tick label
         var showMinLabel = axisModel.get('axisLabel.showMinLabel');
@@ -38150,11 +38150,11 @@
                 textFill: typeof textColor === 'function'
                     ? textColor(
                         // (1) In category axis with data zoom, tick is not the original
-                        // index of axis.data. So tick should not be exposed to user
+                        // index of axis.data. So tick should not be exposed to users
                         // in category axis.
                         // (2) Compatible with previous version, which always use formatted label as
                         // input. But in interval scale the formatted label is like '223,445', which
-                        // maked user repalce ','. So we modify it to return original val but remain
+                        // maked users repalce ','. So we modify it to return original val but remain
                         // it as 'string' to avoid error in replacing.
                         axis.type === 'category'
                             ? rawLabel
@@ -38263,7 +38263,7 @@
             result.coordSysMap[coordSysKey] = coordSys;
 
             // Set tooltip (like 'cross') is a convienent way to show axisPointer
-            // for user. So we enable seting tooltip on coordSys model.
+            // for users. So we enable seting tooltip on coordSys model.
             var coordSysModel = coordSys.model;
             var baseTooltipModel = coordSysModel.getModel('tooltip', globalTooltipModel);
 
@@ -44305,7 +44305,7 @@
         var itemStyle = model.getItemStyle();
         var areaColor = model.get('areaColor');
 
-        // If user want the color not to be changed when hover,
+        // If users want the color not to be changed when hover,
         // they should both set areaColor and color to be null.
         if (areaColor != null) {
             itemStyle.fill = areaColor;
@@ -47287,7 +47287,7 @@
             // input id at the first time.
             // This feature can make sure that each data item and its
             // mapped color have the same index between data list and
-            // color list at the beginning, which is useful for user
+            // color list at the beginning, which is useful for users
             // to adjust data-color mapping.
 
             /**
@@ -48019,7 +48019,7 @@
 
                         if (!parent.__tmWillDelete) {
                             // Let node animate to right-bottom corner, cooperating with fadeout,
-                            // which is appropriate for user understanding.
+                            // which is appropriate for users understanding.
                             // Divided by 2 for reRoot rolling up effect.
                             targetX = parent.__tmNodeWidth / 2;
                             targetY = parent.__tmNodeHeight / 2;
@@ -48603,7 +48603,7 @@
                     : { x: parentOldX, y: parentOldY, width: 0, height: 0 };
             }
 
-            // Fade in, user can be aware that these nodes are new.
+            // Fade in, users can be aware that these nodes are new.
             lastCfg.fadein = storageName !== 'nodeGroup';
         }
     }
@@ -51293,7 +51293,7 @@
             }
             label.attr({
                 style: {
-                    // Use the user specified text align and baseline first
+                    // Use the users specified text align and baseline first
                     textVerticalAlign: label.__verticalAlign || textVerticalAlign,
                     textAlign: label.__textAlign || textAlign
                 },
@@ -55364,7 +55364,7 @@
             axisExpandRate: 17,
             axisExpandDebounce: 50,
             // [out, in, jumpTarget]. In percentage. If use [null, 0.05], null means full.
-            // Do not doc to user until necessary.
+            // Do not doc to users until necessary.
             axisExpandSlideTriggerArea: [-0.15, 0.05, 0.4],
             axisExpandTriggerOn: 'click', // 'mousemove' or 'click'
 
@@ -56270,8 +56270,8 @@
             && thisBrushOption.brushMode === 'single'
             && thisBrushOption.removeOnClick
         ) {
-            // Help user to remove covers easily, only by a tiny drag, in 'single' mode.
-            // But a single click do not clear covers, because user may have casual
+            // Help users to remove covers easily, only by a tiny drag, in 'single' mode.
+            // But a single click do not clear covers, because users may have casual
             // clicks (for example, click on other component and do not expect covers
             // disappear).
             // Only some cover removed, trigger action, but not every click trigger action.
@@ -56402,7 +56402,7 @@
                 var cover = new Group();
 
                 // Do not use graphic.Polygon because graphic.Polyline do not close the
-                // border of the shape when drawing, which is a better experience for user.
+                // border of the shape when drawing, which is a better experience for users.
                 cover.add(new Polyline({
                     name: 'main',
                     style: makeStyle(brushOption),
@@ -57966,7 +57966,7 @@
 
     /**
      * Compute the x-position for each node.
-     * 
+     *
      * Here we use Kahn algorithm to detect cycle when we traverse
      * the node to computer the initial x position.
      *
@@ -58407,7 +58407,7 @@
          */
         getInitialData: function (option, ecModel) {
             // When both types of xAxis and yAxis are 'value', layout is
-            // needed to be specified by user. Otherwise, layout can be
+            // needed to be specified by users. Otherwise, layout can be
             // judged by which axis is category.
 
             var ordinalMeta;
@@ -58531,7 +58531,7 @@
 
         /**
          * @see <https://en.wikipedia.org/wiki/Box_plot>
-         * The meanings of 'min' and 'max' depend on user,
+         * The meanings of 'min' and 'max' depend on users,
          * and echarts do not need to know it.
          * @readOnly
          */
@@ -62450,7 +62450,7 @@
         var unitLength = Math.max(symbolSize[valueDim.index] + valueLineWidth, 0);
         var pathLen = unitLength;
 
-        // Note: rotation will not effect the layout of symbols, because user may
+        // Note: rotation will not effect the layout of symbols, because users may
         // want symbols to rotate on its center, which should not be translated
         // when rotating.
 
@@ -64585,7 +64585,7 @@
             var status = axisPointerModel.get('status');
 
             // Bind them to `this`, not in closure, otherwise they will not
-            // be replaced when user calling setOption in not merge mode.
+            // be replaced when users calling setOption in not merge mode.
             this._axisModel = axisModel;
             this._axisPointerModel = axisPointerModel;
             this._api = api;
@@ -65722,7 +65722,7 @@
 
         /**
          * @override
-         * @param  {Object} option  the initial option that user gived
+         * @param  {Object} option  the initial option that users gived
          * @param  {module:echarts/model/Model} ecModel  the model object for themeRiver option
          * @return {module:echarts/data/List}
          */
@@ -67533,7 +67533,7 @@
         var rect = coordSys.grid.getRect();
         return {
             coordSys: {
-                // The name exposed to user is always 'cartesian2d' but not 'grid'.
+                // The name exposed to users is always 'cartesian2d' but not 'grid'.
                 type: 'cartesian2d',
                 x: rect.x,
                 y: rect.y,
@@ -68121,7 +68121,7 @@
 
         /**
          * By default, `visual` is applied to style (to support visualMap).
-         * `visual.color` is applied at `fill`. If user want apply visual.color on `stroke`,
+         * `visual.color` is applied at `fill`. If users want apply visual.color on `stroke`,
          * it can be implemented as:
          * `api.style({stroke: api.visual('color'), fill: null})`;
          * @public
@@ -69003,7 +69003,7 @@
             this._availableNames = availableNames;
 
             // If legend.data not specified in option, use availableNames as data,
-            // which is convinient for user preparing option.
+            // which is convinient for users preparing option.
             var rawData = this.get('data') || potentialData;
 
             var legendData = map(rawData, function (dataItem) {
@@ -69539,7 +69539,7 @@
             var tooltipModel = itemModel.getModel('tooltip');
             var legendGlobalTooltipModel = tooltipModel.parentModel;
 
-            // Use user given icon first
+            // Use users given icon first
             legendSymbolType = itemIcon || legendSymbolType;
             itemGroup.add(createSymbol(
                 legendSymbolType,
@@ -70189,7 +70189,7 @@
 
                     if (itemRect.intersect(winRect)) {
                         startIdx == null && (startIdx = index);
-                        // It is user-friendly that the last item shown in the
+                        // It is users-friendly that the last item shown in the
                         // current window is shown at the begining of next window.
                         pageNextDataIndex = child.__legendDataIndex;
                     }
@@ -70811,7 +70811,7 @@
             // Try to keep the tooltip show when refreshing
             if (this._lastX != null
                 && this._lastY != null
-                // When user is willing to control tooltip totally using API,
+                // When users is willing to control tooltip totally using API,
                 // self.manuallyShowTip({x, y}) might cause tooltip hide,
                 // which is not expected.
                 && tooltipModel.get('triggerOn') !== 'none'
@@ -71308,7 +71308,7 @@
         },
 
         // FIXME
-        // Should we remove this but leave this to user?
+        // Should we remove this but leave this to users?
         _updateContentNotChangedOnAxis: function (dataByCoordSys) {
             var lastCoordSys = this._lastDataByCoordSys;
             var contentNotChanged = !!lastCoordSys
@@ -73007,7 +73007,7 @@
             buildLabelElOption(elOption, axisModel, axisPointerModel, api, labelPos);
         }
 
-        // Do not support handle, utill any user requires it.
+        // Do not support handle, utill any users requires it.
 
     });
 
@@ -73912,9 +73912,9 @@
      *
      * [area]:
      *
-     * Generated by BrushController or user input.
+     * Generated by BrushController or users input.
      * {
-     *     panelId: Used to locate coordInfo directly. If user inpput, no panelId.
+     *     panelId: Used to locate coordInfo directly. If users inpput, no panelId.
      *     brushType: determine how to convert to/from coord('rect' or 'polygon' or 'lineX/Y').
      *     Index/Id/Name of geo, xAxis, yAxis, grid: See util/model#parseFinder.
      *     range: pixel range.
@@ -74352,7 +74352,7 @@
                 selected: []
             };
             // Every brush component exists in event params, convenient
-            // for user to find by index.
+            // for users to find by index.
             brushSelected.push(thisBrushSelected);
 
             var brushOption = brushModel.option;
@@ -74463,7 +74463,7 @@
                     dataIndex: []
                 };
                 // Every series exists in event params, convenient
-                // for user to find series by seriesIndex.
+                // for users to find series by seriesIndex.
                 thisBrushSelected.selected.push(seriesBrushSelected);
 
                 var selectorsByBrushType = getSelectorsByBrushType(seriesModel);
@@ -74746,7 +74746,7 @@
             }
 
             // If ranges is null/undefined, range state remain.
-            // This helps user to dispatchAction({type: 'brush'}) with no areas
+            // This helps users to dispatchAction({type: 'brush'}) with no areas
             // set but just want to get the current brush select info from a `brush` event.
             if (!areas) {
                 return;
@@ -75760,7 +75760,7 @@
         }
 
         var ignoreSize = map([0, 1], function (hvIdx) {
-            // If user have set `width` or both `left` and `right`, cellSize
+            // If users have set `width` or both `left` and `right`, cellSize
             // will be automatically set to 'auto', otherwise the default
             // setting of cellSize will make `width` setting not work.
             if (sizeCalculable(raw, hvIdx)) {
@@ -77095,7 +77095,7 @@
         // time axes are used to compare data of the same date in different years).
         // So basically dataZoom just obtains extent by series.data (in category axis
         // extent can be obtained from axis.data).
-        // Nevertheless, user can set min/max/scale on axes to make extent of axes
+        // Nevertheless, users can set min/max/scale on axes to make extent of axes
         // consistent.
         fixExtentByAxis(axisProxy, dataExtent);
 
@@ -77234,7 +77234,7 @@
             //          filtered only if all  of the relevant dimensions are out of the same
             //          side of the window.
             // 'empty': data items which are out of window will be set to empty.
-            //          This option is applicable when user should not neglect
+            //          This option is applicable when users should not neglect
             //          that there are some data items out of window.
             // 'none': Do not filter.
             // Taking line chart as an example, line will be broken in
@@ -77397,13 +77397,13 @@
          */
         _judgeAutoMode: function () {
             // Auto set only works for setOption at the first time.
-            // The following is user's reponsibility. So using merged
+            // The following is users's reponsibility. So using merged
             // option is OK.
             var thisOption = this.option;
 
             var hasIndexSpecified = false;
             eachAxisDim(function (dimNames) {
-                // When user set axisIndex as a empty array, we think that user specify axisIndex
+                // When users set axisIndex as a empty array, we think that users specify axisIndex
                 // but do not want use auto mode. Because empty array may be encountered when
                 // some error occured.
                 if (thisOption[dimNames.axisIndex] != null) {
@@ -77555,7 +77555,7 @@
          * @private
          */
         _setDefaultThrottle: function (rawOption) {
-            // When first time user set throttle, auto throttle ends.
+            // When first time users set throttle, auto throttle ends.
             if (rawOption.hasOwnProperty('throttle')) {
                 this._autoThrottle = false;
             }
@@ -78785,7 +78785,7 @@
 
     // Only create one roam controller for each coordinate system.
     // one roam controller might be refered by two inside data zoom
-    // components (for example, one for x and one for y). When user
+    // components (for example, one for x and one for y). When users
     // pan or zoom, only dispatch one action for those data zoom
     // components.
 
@@ -79297,7 +79297,7 @@
             });
 
             ecModel.eachComponent('dataZoom', function (dataZoomModel) {
-                // Fullfill all of the range props so that user
+                // Fullfill all of the range props so that users
                 // is able to get them from chart.getOption().
                 var axisProxy = dataZoomModel.findRepresentativeAxisProxy();
                 var percentRange = axisProxy.getDataPercentWindow();
@@ -80054,7 +80054,7 @@
                 // Originally we use visualMap.color as the default color, but setOption at
                 // the second time the default color will be erased. So we change to use
                 // constant DEFAULT_COLOR.
-                // If user do not want the defualt color, set inRange: {color: null}.
+                // If users do not want the defualt color, set inRange: {color: null}.
                 base.inRange = base.inRange || { color: ecModel.get('gradientColor') };
 
                 // If using shortcut like: {inRange: 'symbol'}, complete default value.
@@ -80296,7 +80296,7 @@
 
             if (!range || range.auto) {
                 // `range` should always be array (so we dont use other
-                // value like 'auto') for user-friend. (consider getOption).
+                // value like 'auto') for users-friend. (consider getOption).
                 dataExtent.auto = 1;
                 this.option.range = dataExtent;
             }
@@ -81393,7 +81393,7 @@
             }
 
             // When realtime is set as false, handles, which are in barGroup,
-            // also trigger hoverLink, which help user to realize where they
+            // also trigger hoverLink, which help users to realize where they
             // focus on when dragging. (see test/heatmap-large.html)
             // When realtime is set as true, highlight will not show when hover
             // handle, because the label on handle, which displays a exact value
@@ -86794,7 +86794,7 @@
                     ? {
                         brushType: 'auto',
                         brushStyle: {
-                            // FIXME user customized?
+                            // FIXME users customized?
                             lineWidth: 0,
                             fill: 'rgba(0,0,0,0.2)'
                         }
@@ -89856,7 +89856,7 @@
         svgRoot.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
         svgRoot.setAttribute('version', '1.1');
         svgRoot.setAttribute('baseProfile', 'full');
-        svgRoot.style.cssText = 'user-select:none;position:absolute;left:0;top:0;';
+        svgRoot.style.cssText = 'users-select:none;position:absolute;left:0;top:0;';
 
         this.gradientManager = new GradientManager(zrId, svgRoot);
         this.clipPathManager = new ClippathManager(zrId, svgRoot);

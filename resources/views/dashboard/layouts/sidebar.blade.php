@@ -10,9 +10,9 @@
             <li class="dropdown">
                 <a href="{{route('dashboard.home')}}" class="nav-link"><i data-feather="monitor"></i><span>@lang('dashboard.home')</span></a>
             </li>
-            @hasRole($UserConstants::ROLE_ADMIN . ',' . $UserConstants::ROLE_MANAGER)
+            @hasRole($UserConstants::ROLE_ADMIN)
                 <li class="dropdown">
-                    <a href="{{route('dashboard.employee')}}" class="nav-link"><i data-feather="users"></i><span>@lang('dashboard.employee')</span></a>
+                    <a href="{{route('dashboard.users.index')}}" class="nav-link"><i data-feather="users"></i><span>@lang('dashboard.users.users')</span></a>
                 </li>
             @endHasRole
         </ul>

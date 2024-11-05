@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('image');
             $table->string('email')->unique();
             $table->string('phone')->unique();
+            $table->foreignId('manager_id')->nullable()->index();
+            $table->foreignId('department_id')->index();
             $table->enum('role', UserConstants::ROLES)->default(UserConstants::ROLE_EMPLOYEE);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

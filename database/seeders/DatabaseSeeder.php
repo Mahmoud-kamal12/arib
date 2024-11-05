@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Http\Constants\UserConstants;
+use App\Models\Department;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        Department::factory(5)->create();
 
         User::factory()->create([
             'first_name' => 'Admin',

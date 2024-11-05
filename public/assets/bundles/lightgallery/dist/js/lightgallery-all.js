@@ -768,7 +768,7 @@
             ** ** avoid simultaneous image load
         <=> ** Preload() will check for s.preload value and call loadContent() again accoring to preload value
             ** loadContent()  <====> Preload();
-    
+
         *   @param {Number} index - index of the slide
         *   @param {Boolean} fromTouch - true if slide function called via touch event or mouse drag
         *   @param {Boolean} fromThumb - true if slide function called via thumbnail click
@@ -2719,7 +2719,7 @@
             var scale = 1;
             /**
              * @desc Image zoom
-             * Translate the wrap and scale the image to get better user experience
+             * Translate the wrap and scale the image to get better users experience
              *
              * @param {String} scaleVal - Zoom decrement/increment value
              */
