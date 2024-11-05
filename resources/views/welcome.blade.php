@@ -126,7 +126,7 @@
 
     <div class="button-group">
         <a href="https://github.com/Mahmoud-kamal12/arib.git" class="btn" target="_blank">View on GitHub</a>
-        <a href="/login" class="btn" target="_blank">Go to Login</a>
+        <a href="{{route('login')}}" class="btn" target="_blank">Go to Login</a>
     </div>
 </div>
 
