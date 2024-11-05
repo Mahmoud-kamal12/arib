@@ -7,9 +7,14 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Main</li>
-            <li class="dropdown active">
+            <li class="dropdown">
                 <a href="{{route('dashboard.home')}}" class="nav-link"><i data-feather="monitor"></i><span>@lang('dashboard.home')</span></a>
             </li>
+            @hasRole($UserConstants::ROLE_ADMIN . ',' . $UserConstants::ROLE_MANAGER)
+                <li class="dropdown">
+                    <a href="{{route('dashboard.employee')}}" class="nav-link"><i data-feather="users"></i><span>@lang('dashboard.employee')</span></a>
+                </li>
+            @endHasRole
         </ul>
     </aside>
 </div>
