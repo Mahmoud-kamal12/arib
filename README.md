@@ -38,7 +38,7 @@ This project is a PHP-based employee management system that includes functionali
         - **Delete** department (only if no employees are assigned to it).
 
 # Installation
-1. Clone the repository ```git clone [url]```
+1. Clone the repository ```git clone https://github.com/Mahmoud-kamal12/arib.git```
 2. Open the project in your IDE
 3. Enter the following command in the terminal to run docker containers:
 ```bash
