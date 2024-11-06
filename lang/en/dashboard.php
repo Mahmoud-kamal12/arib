@@ -11,6 +11,13 @@ return [
         'edit' => 'Edit',
         'delete' => 'Delete',
     ],
+    'departments' => [
+        'departments' => 'Departments',
+        'index' => 'Index',
+        'add' => 'Add',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+    ],
     'passwordReset' => 'passwordReset',
     'password_reset' => 'password_reset',
     'password_reset_tokens' => 'password_reset_tokens',

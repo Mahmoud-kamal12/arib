@@ -14,6 +14,11 @@
                 <li class="dropdown">
                     <a href="{{route('dashboard.users.index')}}" class="nav-link"><i data-feather="users"></i><span>@lang('dashboard.users.users')</span></a>
                 </li>
+
+                <li class="dropdown">
+                    <a href="{{route('dashboard.departments.index')}}" class="nav-link"><i data-feather="box"></i><span>@lang('dashboard.departments.departments')</span></a>
+                </li>
+
             @endHasRole
         </ul>
     </aside>
